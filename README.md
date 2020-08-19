@@ -1,1 +1,4 @@
 # bd2-backend
+
+
+#PARTIU PASSAR NESSA MATERIA @PATRICIA
