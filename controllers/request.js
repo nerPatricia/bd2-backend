@@ -12,14 +12,7 @@ module.exports = {
         url: 'https://api.scryfall.com/cards/search?q=year%3E%3D2020'
       });
 
-      let payload = {
-        data: allCards.data.data,
-        next_page: allCards.data.next_page,
-        total_cards: allCards.data.total_cards,
-        status_code: res.status(200)
-      };
-      console.log(payload);
-      return payload;
+      return res.status(200).json(allCards.data);
     } catch (e) {
       console.log(e);
     }

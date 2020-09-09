@@ -12,7 +12,7 @@ app.use(cors());
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true
 // });
-requireDir("./models");
+requireDir("./app/models");
 
 // const Notification = mongoose.model("Notification");
 // const User = mongoose.model("User");

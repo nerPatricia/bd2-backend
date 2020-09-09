@@ -4,7 +4,7 @@ const routes = express.Router();
 const requestController = require("./controllers/request");
 
 // get all cards since 1990
-routes.get("/", requestController.getAllCards);
+routes.get("/get-all-cards", requestController.getAllCards);
 // // trás todas as notificações
 // routes.get("/notification", NotificationController.index);
 // // cria uma nova notificação
