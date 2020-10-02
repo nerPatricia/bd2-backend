@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
         commander: DataTypes.STRING,
         brawl: DataTypes.STRING,
         duel: DataTypes.STRING,
-        oldschoo: DataTypes.STRING
+        oldschool: DataTypes.STRING
     });
-  
+
     return Legality;
-  }
+}

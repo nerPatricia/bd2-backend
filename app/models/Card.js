@@ -1,40 +1,38 @@
-const Color = require('../models/Color');
+// const Color = require('../models/Color');
 const Legality = require('../models/Legality');
 const Set = require('../models/Set');
 const Artist = require('../models/Artist');
 const Price = require('../models/Price');
 
-
-
 module.exports = (sequelize, DataTypes) => {
-    const Card = sequelize.define('Card', {
-      name: DataTypes.STRING,
-      lang: DataTypes.STRING,
-      releaseDate: DataTypes.DATE,
-      uri: DataTypes.STRING,
-      layout: DataTypes.STRING,
-      imageUrisNormal: DataTypes.STRING,
-      manaCost: DataTypes.STRING,
-      cmc: DataTypes.FLOAT,
-      typeLine: DataTypes.STRING,
-      oracleText: DataTypes.STRING,
-      power: DataTypes.STRING,
-      toughness: DataTypes.STRING,
-      color: DataTypes.ARRAY(Color),
-      keywords: DataTypes.ARRAY(DataTypes.STRING),
-      legalities: Legality,
-      reserved: DataTypes.BOOLEAN,
-      foil:  DataTypes.BOOLEAN,
-      nonFoil:  DataTypes.BOOLEAN,
-      oversized:  DataTypes.BOOLEAN,
-      promo:  DataTypes.BOOLEAN,
-      set: Set,
-      collectorNumber: DataTypes.STRING,
-      rarity: DataTypes.STRING,
-      artist: Artist,
-      booster: DataTypes.BOOLEAN,
-      prices: Price
-    });
-  
-    return Card;
-  }
+  const Card = sequelize.define('Card', {
+    name: DataTypes.STRING, // nome
+    lang: DataTypes.STRING, // linguagem
+    releaseDate: DataTypes.DATE, // data de lançamento
+    uri: DataTypes.STRING, // link do objeto da carta na api do scryfall
+    layout: DataTypes.STRING, // tipo da carta, ex: normal, saga, aventura, token TODO: criar uma tabela pra isso
+    imageUrisNormal: DataTypes.STRING, // imagem da carta - do tipo "normal"
+    manaCost: DataTypes.STRING, // custo de mana
+    cmc: DataTypes.FLOAT, // custo de mana convertido 
+    typeLine: DataTypes.STRING, // texto do tipo da carta, ex: Creatura - Orc Warrior
+    oracleText: DataTypes.STRING, // descrição da carta
+    power: DataTypes.STRING, // poder
+    toughness: DataTypes.STRING, // resistencia
+    color: DataTypes.ARRAY(DataTypes.STRING), // array de cores da carta TODO: selequelize.enum('value 1', 'value 2');
+    keywords: DataTypes.ARRAY(DataTypes.STRING), // efeitos chaves
+    legalities: Legality, // modalidade em que a carta é válida
+    reserved: DataTypes.BOOLEAN, // reservada
+    foil: DataTypes.BOOLEAN, // se tem foil
+    nonFoil: DataTypes.BOOLEAN, // se tem não-foil
+    oversized: DataTypes.BOOLEAN, // se tem oversized
+    promo: DataTypes.BOOLEAN, // se é promo
+    set: Set, // qual o set de lançamento da carta
+    collectorNumber: DataTypes.STRING, // numero da carta
+    rarity: DataTypes.STRING, // raridade da carta
+    artist: Artist, // artista
+    booster: DataTypes.BOOLEAN, // se vem em booster
+    prices: Price // preços em dolar, euro e dolar-foil
+  });
+
+  return Card;
+}

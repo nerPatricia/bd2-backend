@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
-    const Artist = sequelize.define('Artist', {
+    const Price = sequelize.define('Price', {
         usd: DataTypes.STRING,
         usd_foil: DataTypes.STRING,
         eur: DataTypes.STRING
     });
-  
-    return Artist;
-  }
+    //   TODO colocar foreign key carta
+    return Price;
+}

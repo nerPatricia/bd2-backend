@@ -1,0 +1,9 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "laranja",
+        "database": "magic_db",
+        "host": "localhost",
+        "dialect": "postgres"
+    }
+}
