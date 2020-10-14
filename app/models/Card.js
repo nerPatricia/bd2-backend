@@ -3,6 +3,7 @@ const Legality = require('../models/Legality');
 const Set = require('../models/Set');
 const Artist = require('../models/Artist');
 const Price = require('../models/Price');
+const Layout = require('../models/Layout');
 
 module.exports = (sequelize, DataTypes) => {
   const Card = sequelize.define('Card', {
@@ -10,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     lang: DataTypes.STRING, // linguagem
     releaseDate: DataTypes.DATE, // data de lançamento
     uri: DataTypes.STRING, // link do objeto da carta na api do scryfall
-    layout: DataTypes.STRING, // tipo da carta, ex: normal, saga, aventura, token TODO: criar uma tabela pra isso
+    layout: Layout, // tipo da carta, ex: normal, saga, aventura, token 
     imageUrisNormal: DataTypes.STRING, // imagem da carta - do tipo "normal"
     manaCost: DataTypes.STRING, // custo de mana
     cmc: DataTypes.FLOAT, // custo de mana convertido 
@@ -18,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     oracleText: DataTypes.STRING, // descrição da carta
     power: DataTypes.STRING, // poder
     toughness: DataTypes.STRING, // resistencia
-    color: DataTypes.ARRAY(DataTypes.STRING), // array de cores da carta TODO: selequelize.enum('value 1', 'value 2');
+    color: DataTypes.ENUM('green', 'blue', 'black', 'white', 'red', 'colorless', 'multicolor', 'land'), // array de cores da carta 
     keywords: DataTypes.ARRAY(DataTypes.STRING), // efeitos chaves
     legalities: Legality, // modalidade em que a carta é válida
     reserved: DataTypes.BOOLEAN, // reservada
@@ -34,5 +35,6 @@ module.exports = (sequelize, DataTypes) => {
     prices: Price // preços em dolar, euro e dolar-foil
   });
 
+  Card.hasOne(Price);
   return Card;
 }
