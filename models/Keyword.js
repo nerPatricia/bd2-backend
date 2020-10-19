@@ -1,12 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    const Price = sequelize.define('Price', {
-        usd: {
-            type: DataTypes.STRING
-        },
-        usd_foil: {
-            type: DataTypes.STRING
-        },
-        eur: {
+    const Keyword = sequelize.define('Keyword', {
+        word: {
             type: DataTypes.STRING
         },
         cardId: {
@@ -14,12 +8,13 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    Price.associate = (models) => {
+    Keyword.associate = (models) => {
         // associations can be defined here
-        Price.belongsTo(models.Card, {
+        Keyword.belongsTo(models.Card, {
           foreignKey: 'cardId',
           targetKey: 'id',
         });
       };
-    return Price;
+
+    return Keyword;
 }

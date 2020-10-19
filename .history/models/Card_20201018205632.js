@@ -36,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
     toughness: {
       type: DataTypes.STRING, // resistencia
     },
+    // legalities: {
+    //   type: Legality, // modalidade em que a carta é válida
+    // },
     reserved: {
       type: DataTypes.BOOLEAN, // reservada
     },
@@ -57,47 +60,11 @@ module.exports = (sequelize, DataTypes) => {
     rarity: {
       type: DataTypes.STRING, // raridade da carta
     },
+    // artist: {
+    //   type: Artist, // artista
+    // },
     booster: {
       type: DataTypes.BOOLEAN, // se vem em booster
-    },
-    standard: {
-      type: DataTypes.BOOLEAN,
-    },
-    future: {
-      type: DataTypes.BOOLEAN,
-    },
-    historic: {
-      type: DataTypes.BOOLEAN,
-    },
-    pioneer: {
-      type: DataTypes.BOOLEAN,
-    },
-    modern: {
-      type: DataTypes.BOOLEAN,
-    },
-    legacy: {
-      type: DataTypes.BOOLEAN,
-    },
-    pauper: {
-      type: DataTypes.BOOLEAN,
-    },
-    vintage: {
-      type: DataTypes.BOOLEAN,
-    },
-    penny: {
-      type: DataTypes.BOOLEAN,
-    },
-    commander: {
-      type: DataTypes.BOOLEAN,
-    },
-    brawl: {
-      type: DataTypes.BOOLEAN,
-    },
-    duel: {
-      type: DataTypes.BOOLEAN,
-    },
-    oldschool: {
-      type: DataTypes.BOOLEAN,
     }
   });
 
