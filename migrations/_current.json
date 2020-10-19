@@ -1,0 +1,45 @@
+{
+    "tables": {
+        "Artists": {
+            "tableName": "Artists",
+            "indexes": []
+        },
+        "Cards": {
+            "tableName": "Cards",
+            "indexes": []
+        },
+        "CardArtists": {
+            "tableName": "CardArtists",
+            "indexes": []
+        },
+        "CardCollections": {
+            "tableName": "CardCollections",
+            "indexes": []
+        },
+        "CardColors": {
+            "tableName": "CardColors",
+            "indexes": []
+        },
+        "Collections": {
+            "tableName": "Collections",
+            "indexes": []
+        },
+        "Colors": {
+            "tableName": "Colors",
+            "indexes": []
+        },
+        "Keywords": {
+            "tableName": "Keywords",
+            "indexes": []
+        },
+        "Prices": {
+            "tableName": "Prices",
+            "indexes": []
+        },
+        "Users": {
+            "tableName": "Users",
+            "indexes": []
+        }
+    },
+    "revision": 1
+}

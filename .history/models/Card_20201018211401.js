@@ -36,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
     toughness: {
       type: DataTypes.STRING, // resistencia
     },
+    // legalities: {
+    //   type: Legality, // modalidade em que a carta é válida
+    // },
     reserved: {
       type: DataTypes.BOOLEAN, // reservada
     },

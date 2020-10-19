@@ -1,3 +1,9 @@
+// const Color = require('../models/Color');
+// const Legality = require('./Legality');
+// const Collection = require('./Collection');
+// const Artist = require('./Artist');
+// const Price = require('./Price');
+
 module.exports = (sequelize, DataTypes) => {
   const Card = sequelize.define('Card', {
     name: {
@@ -36,6 +42,15 @@ module.exports = (sequelize, DataTypes) => {
     toughness: {
       type: DataTypes.STRING, // resistencia
     },
+    // color: {
+    //   type: DataTypes.ARRAY(DataTypes.STRING), // array de cores da carta TODO: selequelize.enum('value 1', 'value 2');
+    // },
+    // keywords: {
+    //   type: DataTypes.ARRAY(DataTypes.STRING), // efeitos chaves
+    // },
+    // legalities: {
+    //   type: Legality, // modalidade em que a carta é válida
+    // },
     reserved: {
       type: DataTypes.BOOLEAN, // reservada
     },
@@ -51,54 +66,24 @@ module.exports = (sequelize, DataTypes) => {
     promo: {
       type: DataTypes.BOOLEAN, // se é promo
     },
+    // collection: {
+    //   type: Collection, // qual o collection de lançamento da carta
+    // },
     collectorNumber: {
       type: DataTypes.STRING, // numero da carta
     },
     rarity: {
       type: DataTypes.STRING, // raridade da carta
     },
+    // artist: {
+    //   type: Artist, // artista
+    // },
     booster: {
       type: DataTypes.BOOLEAN, // se vem em booster
-    },
-    standard: {
-      type: DataTypes.BOOLEAN,
-    },
-    future: {
-      type: DataTypes.BOOLEAN,
-    },
-    historic: {
-      type: DataTypes.BOOLEAN,
-    },
-    pioneer: {
-      type: DataTypes.BOOLEAN,
-    },
-    modern: {
-      type: DataTypes.BOOLEAN,
-    },
-    legacy: {
-      type: DataTypes.BOOLEAN,
-    },
-    pauper: {
-      type: DataTypes.BOOLEAN,
-    },
-    vintage: {
-      type: DataTypes.BOOLEAN,
-    },
-    penny: {
-      type: DataTypes.BOOLEAN,
-    },
-    commander: {
-      type: DataTypes.BOOLEAN,
-    },
-    brawl: {
-      type: DataTypes.BOOLEAN,
-    },
-    duel: {
-      type: DataTypes.BOOLEAN,
-    },
-    oldschool: {
-      type: DataTypes.BOOLEAN,
     }
+    // prices: {
+    //   type: Price // preços em dolar, euro e dolar-foil
+    // }
   });
 
   // Card.associate = (models) => {

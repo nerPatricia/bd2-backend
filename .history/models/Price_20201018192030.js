@@ -13,13 +13,5 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         }
     });
-
-    Price.associate = (models) => {
-        // associations can be defined here
-        Price.belongsTo(models.Card, {
-          foreignKey: 'cardId',
-          targetKey: 'id',
-        });
-      };
     return Price;
 }
