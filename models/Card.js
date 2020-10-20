@@ -98,6 +98,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     oldschool: {
       type: DataTypes.BOOLEAN,
+    },
+    artist: {
+      type: DataTypes.STRING
     }
   });
 
