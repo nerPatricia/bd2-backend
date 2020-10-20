@@ -1,21 +1,19 @@
-
 module.exports = {
     up: (queryInterface, Sequelize) => queryInterface.createTable('CardCollection', {
         cardId: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
                 model: 'Card',
                 key: 'id',
-              },
+            },
         },
         collectionId: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
                 model: 'Collection',
                 key: 'id',
-              },
+            },
         }
     }),
     down: (queryInterface, Sequelize) => queryInterface.dropTable('CardCollection'),
-  };
-  
+};
