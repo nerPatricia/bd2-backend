@@ -1,7 +1,7 @@
 module.exports = {
     up: (queryInterface, Sequelize) => queryInterface.createTable('CardCollection', {
         cardId: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.STRING,
             references: {
                 model: 'Card',
                 key: 'id',

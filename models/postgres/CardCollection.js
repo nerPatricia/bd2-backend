@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const CardCollection = sequelize.define('CardCollection', {
         cardId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         },
         collectionId: {
             type: DataTypes.INTEGER

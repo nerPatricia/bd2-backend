@@ -7,16 +7,19 @@ module.exports = {
       type: Sequelize.INTEGER,
     },
     usd: {
-      type: Sequelize.STRING
+      type: Sequelize.FLOAT
     },
     usd_foil: {
-      type: Sequelize.STRING
+      type: Sequelize.FLOAT
     },
     eur: {
-      type: Sequelize.STRING
+      type: Sequelize.FLOAT
+    },
+    eur_foil: {
+      type: Sequelize.FLOAT
     },
     cardId: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       references: {
         model: 'Card',
         key: 'id',

@@ -1,5 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Card = sequelize.define('Card', {
+    id:{
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
     name: {
       type: DataTypes.STRING, // nome
     },
@@ -103,21 +107,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     }
   });
-
-  // Card.associate = (models) => {
-  //   Card.belongsTo(models.Price, {
-  //     foreignKey: 'prices',
-  //     targetKey: 'id',
-  //   });
-  //   Card.belongsTo(models.Artist, {
-  //     foreignKey: 'artist',
-  //     targetKey: 'id',
-  //   });
-  //   Card.belongsTo(models.Collection, {
-  //     foreignKey: 'collection',
-  //     targetKey: 'id',
-  //   });
-  // };
 
   return Card;
 }

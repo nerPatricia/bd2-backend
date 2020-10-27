@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         cardId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         }
     });
 

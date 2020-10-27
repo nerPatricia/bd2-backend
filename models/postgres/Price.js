@@ -1,17 +1,21 @@
 module.exports = (sequelize, DataTypes) => {
     const Price = sequelize.define('Price', {
         usd: {
-            type: DataTypes.STRING
+            type: DataTypes.FLOAT
         },
         usd_foil: {
-            type: DataTypes.STRING
+            type: DataTypes.FLOAT
         },
         eur: {
-            type: DataTypes.STRING
+            type: DataTypes.FLOAT
+        },
+        eur_foil: {
+            type: DataTypes.FLOAT
         },
         cardId: {
-            type: DataTypes.INTEGER
-        }
+            type: DataTypes.FLOAT
+        },
+        
     });
 
     Price.associate = (models) => {

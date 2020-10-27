@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const CardColor = sequelize.define('CardColor', {
         cardId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         },
         colorId: {
             type: DataTypes.INTEGER
