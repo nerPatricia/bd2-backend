@@ -75,7 +75,6 @@ const updateDatabase = async (allCards) => {
     oldschool,
     artist,
     releaseDate,
-    imageUrisNormal,
     typeLine,
     oracleText,
     collectorNumber,
@@ -83,6 +82,7 @@ const updateDatabase = async (allCards) => {
   });
 
   //Collection
+  imageUrisNormal = data.image_uris.normal
   abbreviation = data.set
   name = data.set_name
   type = data.set_type
