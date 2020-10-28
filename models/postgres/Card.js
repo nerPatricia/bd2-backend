@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Card = sequelize.define('Card', {
-    id:{
+    id: {
       type: DataTypes.STRING,
       primaryKey: true
     },
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING, // link do objeto da carta na api do scryfall
     },
     layout: {
-      type: DataTypes.STRING, // tipo da carta, ex: normal, saga, aventura, token TODO: criar uma tabela pra isso
+      type: DataTypes.STRING, // tipo da carta, ex: normal, saga, aventura, token
     },
     imageUrisNormal: {
       type: DataTypes.STRING, // imagem da carta - do tipo "normal"

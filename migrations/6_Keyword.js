@@ -1,8 +1,8 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Keyword', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Keywords', {
     id: {
       allowNull: false,
-      autoIncrement: false,
+      autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
@@ -12,7 +12,7 @@ module.exports = {
     cardId: {
       type: Sequelize.STRING,
       references: {
-        model: 'Card',
+        model: 'Cards',
         key: 'id',
       },
     },
@@ -25,5 +25,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Keyword'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Keywords'),
 };

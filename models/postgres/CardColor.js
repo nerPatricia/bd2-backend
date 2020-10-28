@@ -10,14 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     CardColor.associate = (models) => {
         // associations can be defined here
         CardColor.belongsTo(models.Card, {
-          foreignKey: 'cardId',
-          targetKey: 'id',
+            foreignKey: 'cardId',
+            targetKey: 'id',
         });
         CardColor.belongsTo(models.Color, {
             foreignKey: 'colorId',
             targetKey: 'id',
-          });
-      };
+        });
+    };
 
     return CardColor;
-}   
+}

@@ -1,8 +1,8 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Price', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Prices', {
     id: {
       allowNull: false,
-      autoIncrement: false,
+      autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
@@ -21,7 +21,7 @@ module.exports = {
     cardId: {
       type: Sequelize.STRING,
       references: {
-        model: 'Card',
+        model: 'Cards',
         key: 'id',
       },
     },
@@ -34,5 +34,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Price'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Prices'),
 };

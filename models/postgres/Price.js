@@ -15,15 +15,15 @@ module.exports = (sequelize, DataTypes) => {
         cardId: {
             type: DataTypes.FLOAT
         },
-        
+
     });
 
     Price.associate = (models) => {
         // associations can be defined here
         Price.belongsTo(models.Card, {
-          foreignKey: 'cardId',
-          targetKey: 'id',
+            foreignKey: 'cardId',
+            targetKey: 'id',
         });
-      };
+    };
     return Price;
 }

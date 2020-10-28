@@ -1,19 +1,33 @@
 module.exports = {
-    up: (queryInterface, Sequelize) => queryInterface.createTable('CardCollection', {
+    up: (queryInterface, Sequelize) => queryInterface.createTable('CardCollections', {
+        id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: Sequelize.INTEGER,
+        },
         cardId: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             references: {
-                model: 'Card',
+                model: 'Cards',
                 key: 'id',
             },
         },
         collectionId: {
             type: Sequelize.INTEGER,
             references: {
-                model: 'Collection',
+                model: 'Collections',
                 key: 'id',
             },
-        }
+        },
+        createdAt: {
+            allowNull: false,
+            type: Sequelize.DATE,
+        },
+        updatedAt: {
+            allowNull: false,
+            type: Sequelize.DATE,
+        },
     }),
-    down: (queryInterface, Sequelize) => queryInterface.dropTable('CardCollection'),
+    down: (queryInterface, Sequelize) => queryInterface.dropTable('CardCollections'),
 };

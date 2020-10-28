@@ -9,17 +9,16 @@ module.exports = {
     try {
       let allCards;
       url = 'https://api.scryfall.com/cards/search?q=year%3E%3D2020';
-      while(url){
+      while (url) {
         allCards = (await axios({
           method: 'get',
           url
         })).data;
-        // CardController(allCards);
+        CardController(allCards);
         console.log(allCards.has_more)
-        if(!allCards.has_more){
+        if (!allCards.has_more) {
           url = null;
-        }
-        else{
+        } else {
           url = allCards.next_page;
         }
       };
