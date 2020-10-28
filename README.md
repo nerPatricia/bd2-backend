@@ -3,6 +3,8 @@
 
 #PARTIU PASSAR NESSA MATERIA @PATRICIA
 
+npm i
+<br>
 npx sequelize db:drop
 <br>
 npx sequelize db:create
@@ -10,8 +12,6 @@ npx sequelize db:create
 npx sequelize db:migrate
 <br>
 npx sequelize db:seed:all
-<br>
-npm i
 <br>
 npm start
 <br>
