@@ -106,6 +106,12 @@ module.exports = (sequelize, DataTypes) => {
     artist: {
       type: DataTypes.STRING
     }
+  },{
+    indexes: [
+      {
+        unique: true,
+        fields: ['name']
+      }]
   });
 
   return Card;

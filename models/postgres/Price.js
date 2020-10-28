@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.FLOAT
         },
 
+    },{
+        indexes: [
+            {
+              unique: false,
+              fields: ['cardId']
+            }]
     });
 
     Price.associate = (models) => {
