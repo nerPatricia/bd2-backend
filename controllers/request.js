@@ -1,5 +1,7 @@
 const axios = require('axios');
 const CardController = require('./CardController')
+const MongoCardController = require("./MongoController");
+
 // https://api.scryfall.com/search?q=year%3E%3D1990
 // axios.get('/search?q=year%3E%3D1990');
 // GET request for remote image in node.js
@@ -15,6 +17,7 @@ module.exports = {
           url
         })).data;
         CardController(allCards);
+        MongoCardController.store(allCards)
         console.log(allCards.has_more)
         if (!allCards.has_more) {
           url = null;
