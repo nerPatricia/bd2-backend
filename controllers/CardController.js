@@ -1,5 +1,5 @@
 const sequelize = require("sequelize");
-
+const upsert = require('./util')
 const models = require('../models/postgres');
 
 
@@ -22,22 +22,22 @@ const updateDatabase = async (allCards) => {
         oversized,
         promo,
         rarity,
-        booster,
-        standard,
-        future,
-        historic,
-        pioneer,
-        modern,
-        legacy,
-        pauper,
-        vintage,
-        penny,
-        commander,
-        brawl,
-        duel,
-        oldschool,
+        booster,        
         artist,
       } = data;
+      standard = data.legalities.standard == 'legal'?true:false;
+      future = data.legalities.future == 'legal'?true:false;
+      historic = data.legalities.historic == 'legal'?true:false;
+      pioneer = data.legalities.pioneer == 'legal'?true:false;
+      modern = data.legalities.modern == 'legal'?true:false;
+      legacy = data.legalities.legacy == 'legal'?true:false;
+      pauper = data.legalities.pauper == 'legal'?true:false;
+      vintage = data.legalities.vintage == 'legal'?true:false;
+      penny = data.legalities.penny == 'legal'?true:false;
+      commander = data.legalities.commander == 'legal'?true:false;
+      brawl = data.legalities.brawl == 'legal'?true:false;
+      duel = data.legalities.duel == 'legal'?true:false;
+      oldschool = data.legalities.oldschool == 'legal'?true:false;
       releaseDate = data.released_at
       imageUrisNormal = data.image_uris.normal
       typeLine = data.type_line
