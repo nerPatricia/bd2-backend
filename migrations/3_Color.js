@@ -1,8 +1,8 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Color', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Colors', {
     id: {
       allowNull: false,
-      autoIncrement: false,
+      autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
@@ -18,5 +18,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Color'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Colors'),
 };

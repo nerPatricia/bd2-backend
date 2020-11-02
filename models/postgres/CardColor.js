@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const CardColor = sequelize.define('CardColor', {
         cardId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         },
         colorId: {
             type: DataTypes.INTEGER
@@ -10,14 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     CardColor.associate = (models) => {
         // associations can be defined here
         CardColor.belongsTo(models.Card, {
-          foreignKey: 'cardId',
-          targetKey: 'id',
+            foreignKey: 'cardId',
+            targetKey: 'id',
         });
         CardColor.belongsTo(models.Color, {
             foreignKey: 'colorId',
             targetKey: 'id',
-          });
-      };
+        });
+    };
 
     return CardColor;
-}   
+}

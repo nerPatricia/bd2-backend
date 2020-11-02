@@ -4,17 +4,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         cardId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         }
     });
 
     Keyword.associate = (models) => {
         // associations can be defined here
         Keyword.belongsTo(models.Card, {
-          foreignKey: 'cardId',
-          targetKey: 'id',
+            foreignKey: 'cardId',
+            targetKey: 'id',
         });
-      };
+    };
 
     return Keyword;
 }

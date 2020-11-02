@@ -1,28 +1,31 @@
 module.exports.upsert = (values, condition, model, transaction = false) => {
-    if (!transaction) {
-      return model
-        .findOne({ where: condition })
-        .then((obj) => {
-          // update
-          if (obj) return obj.update(values);
-          // insert
-          return model.create(values);
-        });
-    }
-  
+  if (!transaction) {
     return model
-      .findOne({ where: condition })
+      .findOne({
+        where: condition
+      })
       .then((obj) => {
         // update
-        if (obj) {
-          return obj.update(values, {
-            transaction,
-          });
-        }
+        if (obj) return obj.update(values);
         // insert
-        return model.create(values, {
+        return model.create(values);
+      });
+  }
+
+  return model
+    .findOne({
+      where: condition
+    })
+    .then((obj) => {
+      // update
+      if (obj) {
+        return obj.update(values, {
           transaction,
         });
+      }
+      // insert
+      return model.create(values, {
+        transaction,
       });
-  };
-  
+    });
+};

@@ -1,5 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Card = sequelize.define('Card', {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
     name: {
       type: DataTypes.STRING, // nome
     },
@@ -13,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING, // link do objeto da carta na api do scryfall
     },
     layout: {
-      type: DataTypes.STRING, // tipo da carta, ex: normal, saga, aventura, token TODO: criar uma tabela pra isso
+      type: DataTypes.STRING, // tipo da carta, ex: normal, saga, aventura, token
     },
     imageUrisNormal: {
       type: DataTypes.STRING, // imagem da carta - do tipo "normal"
@@ -102,22 +106,13 @@ module.exports = (sequelize, DataTypes) => {
     artist: {
       type: DataTypes.STRING
     }
+  },{
+    indexes: [
+      {
+        unique: true,
+        fields: ['name']
+      }]
   });
-
-  // Card.associate = (models) => {
-  //   Card.belongsTo(models.Price, {
-  //     foreignKey: 'prices',
-  //     targetKey: 'id',
-  //   });
-  //   Card.belongsTo(models.Artist, {
-  //     foreignKey: 'artist',
-  //     targetKey: 'id',
-  //   });
-  //   Card.belongsTo(models.Collection, {
-  //     foreignKey: 'collection',
-  //     targetKey: 'id',
-  //   });
-  // };
 
   return Card;
 }

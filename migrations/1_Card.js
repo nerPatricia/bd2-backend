@@ -1,11 +1,11 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Card', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Cards', {
     id: {
       allowNull: false,
       autoIncrement: false,
       primaryKey: true,
-      type: Sequelize.INTEGER,
-    },
+      type: Sequelize.STRING,
+    }, // id vem da api
     name: {
       type: Sequelize.STRING, // nome
     },
@@ -16,13 +16,13 @@ module.exports = {
       type: Sequelize.DATE, // data de lançamento
     },
     uri: {
-      type: Sequelize.STRING, // link do objeto da carta na api do scryfall
+      type: Sequelize.STRING(400), // link do objeto da carta na api do scryfall
     },
     layout: {
       type: Sequelize.STRING, // tipo da carta, ex: normal, saga, aventura, token
     },
     imageUrisNormal: {
-      type: Sequelize.STRING, // imagem da carta - do tipo "normal"
+      type: Sequelize.STRING(500), // imagem da carta - do tipo "normal"
     },
     manaCost: {
       type: Sequelize.STRING, // custo de mana
@@ -31,10 +31,10 @@ module.exports = {
       type: Sequelize.FLOAT, // custo de mana convertido 
     },
     typeLine: {
-      type: Sequelize.STRING, // texto do tipo da carta, ex: Creatura - Orc Warrior
+      type: Sequelize.STRING(400), // texto do tipo da carta, ex: Creatura - Orc Warrior
     },
     oracleText: {
-      type: Sequelize.STRING, // descrição da carta
+      type: Sequelize.STRING(2000), // descrição da carta
     },
     power: {
       type: Sequelize.STRING, // poder
@@ -117,5 +117,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Card'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Cards'),
 };
