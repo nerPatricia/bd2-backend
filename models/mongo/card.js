@@ -73,7 +73,8 @@ eur: {
 },
 eur_foil: {
   type: mongoose.Decimal128
-}})
+}
+}, { timestamps: { createdAt: 'created_at' } })
 const CardSchema = new mongoose.Schema({
   id:{
     type: String,
@@ -145,8 +146,11 @@ const CardSchema = new mongoose.Schema({
     type: String,
   },
   prices:{
-    type:PriceSchema,
+    type:[PriceSchema],
   },
+  price_variation:{
+    type: mongoose.Decimal128,
+  },//TODO todas as moedas
   colors:[String],
   keywords:[String],
   set: {

@@ -8,7 +8,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const { Sequelize } = require('sequelize');
-
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 //iniciando o DB
 mongoose.connect("mongodb://localhost:27017/bd2-database", {
   useNewUrlParser: true,
