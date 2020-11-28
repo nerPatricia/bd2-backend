@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const updateDatabase = require("./CardController");
 
 const Card = mongoose.model("Card");
 
@@ -7,19 +6,20 @@ module.exports = {
 
   async store(allCards) {
     allCards.data.forEach(async card =>{
-      // await Card.create(card);
-      var query = {"id": card.id},
+      let usd = 0.0;
+      let eur = 0.0;
+      var query = {"id": card.id},  
       updateDb =  {...card},
       options = { upsert: true, new: true, setDefaultsOnInsert: true };
-      // updateDb[$push] = {"price":car.prices};
       delete updateDb["prices"];
-      // console.log("Price", updateDb.price || "0000");
-      // Find the document
-      // TODO: adicionar preço em vez de substituir
-      // TODO: colocar data em price
       const result = await Card.findOneAndUpdate(query, updateDb, options);
-      await Card.update({"_id": result._id }, { $push: { "prices": card.prices}});
-      // result.prices.push(card.prices);
+      result.prices.sort().reverse();
+      res_usd = result.prices[0]? result.prices[0].usd : 0;
+      res_eur = result.prices[0]? result.prices[0].eur : 0;
+      usd = (card.prices.usd - res_usd).toFixed(2);
+      eur = (card.prices.eur - res_eur).toFixed(2);
+      
+      await Card.updateOne({"_id": result._id }, { $push: { "prices": card.prices}, "usd_variation": usd, "eur_variation": eur});
       });
       
   },
