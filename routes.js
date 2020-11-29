@@ -11,7 +11,10 @@ routes.get("/get-all-cards", requestController.getAllCards);
 routes.get("/mongo/search", searchController.MongoSearch);
 //Ad-hoc SQL
 routes.get("/sql/search", searchController.SQLSearch);
-//rank A
-routes.get("/rank", rankController.rank);
+//rank Up
+routes.get("/rank/up", rankController.rankUp);
+//rank Down
+routes.get("/rank/down", rankController.rankDown);
+
 
 module.exports = routes;    
