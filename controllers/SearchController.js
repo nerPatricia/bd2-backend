@@ -26,29 +26,46 @@ module.exports.MongoSearch = async (req, res) => {
     const colors = req.query.colors || '';
     let query = {};
     Object.keys(req.query).forEach(field =>{
-        if(field == "usd_max"){
-            query["prices.usd"]["$lt"]=usd_max;
-        }
-        else if(field == "usd_min"){
-            query["prices.usd"]["$gt"]=usd_min;
-        }
-        else if(field == "eur_max"){
-            query["prices.eur"]["$lt"]=eur_max;
-        }
-        else if(field == "eur_min"){
-            query["prices.eur"]["$gt"]=eur_min;
-        }
-        else if(field == "releaseDate_max"){
-            query["releaseDate"]["$lt"]=releaseDate_max;
-        }
-        else if(field == "releaseDate_min"){
-            query["releaseDate_min"]["$gt"]=releaseDate_min;
-        }
-        else if(field == "colors" && colors =='Z'){
-            query["colors"]= {"$exists":true, $size:0};
-        }
-        else{
-            query[field]=req.query[field];
+        if(req.query[field] != ''){            
+        
+            if(field == "usd_max"){
+                if(query["prices.usd"]){
+                    query["prices.usd"]["$lt"]=usd_max;
+                } else {
+                    query["prices.usd"] = {};
+                    query["prices.usd"]["$lt"]=usd_max;
+                }
+            }
+            else if(field == "usd_min"){
+                if(query["prices.usd"]){
+                    query["prices.usd"]["$gt"]=usd_min;
+                } else {
+                    query["prices.usd"] = {};
+                    query["prices.usd"]["$gt"]=usd_min;
+                }
+            }
+            else if(field == "eur_max"){
+                if(query["prices.eur"]){
+                    query["prices.eur"]["$lt"]=eur_max;
+                } else {
+                    query["prices.eur"] = {};
+                    query["prices.eur"]["$lt"]=eur_max;
+                }
+            }
+            else if(field == "eur_min"){
+                if(query["prices.eur"]){
+                    query["prices.eur"]["$gt"]=eur_min;
+                } else {
+                    query["prices.eur"] = {};
+                    query["prices.eur"]["$gt"]=eur_min;
+                }
+            }
+            else if(field == "colors" && colors =='Z'){
+                query["colors"]= {"$exists":true, $size:0};
+            }
+            else{
+                query[field]=req.query[field];
+            }
         }
     })
     const cards = await Card.paginate(query, { page, limit, select:'name image_uris'});
