@@ -7,8 +7,8 @@ const models = require('../models/postgres');
 const { Op } = require("sequelize");
 
 module.exports.MongoSearch = async (req, res) => {
-    const page = req.query.page || 1;
-    const limit = req.query.limit || 30;
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 30;
     const name = req.query.name || '';
     const collection = req.query.collection || '';
     const usd_max=req.query.usd_max || null;
@@ -26,7 +26,7 @@ module.exports.MongoSearch = async (req, res) => {
     const colors = req.query.colors || '';
     let query = {};
     Object.keys(req.query).forEach(field =>{
-        if(req.query[field] != ''){            
+        if(req.query[field] != '' && field!="limit" && field!="page"){            
         
             if(field == "usd_max"){
                 if(query["prices.usd"]){
