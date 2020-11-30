@@ -22,8 +22,8 @@ module.exports = {
     async rankDown(req,res){
         
         let response = {}
-        response.usd = await Card.find({}).select('name usd_variation prices').sort({ usd_variation: 1 }).limit(10);
-        response.eur = await Card.find({}).select('name eur_variation prices').sort({ eur_variation: 1 }).limit(10);
+        response.usd = await Card.find({usd_variation:{"$lt":0}}).select('name usd_variation prices').sort({ usd_variation: 1 }).limit(10);
+        response.eur = await Card.find({eur_variation:{"$lt":0}}).select('name eur_variation prices').sort({ eur_variation: 1 }).limit(10);
         response.usd.forEach(card =>{
             card.price = card.prices.sort().reverse()[0].usd;
         });
