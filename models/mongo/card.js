@@ -63,17 +63,18 @@ const legalitiesSchema = new mongoose.Schema({
 });
 const PriceSchema = new mongoose.Schema({
 usd: {
-  type: mongoose.Decimal128
+  type: Number
 },
 usd_foil: {
-  type: mongoose.Decimal128
+  type: Number
 },
 eur: {
-  type: mongoose.Decimal128
+  type: Number
 },
 eur_foil: {
-  type: mongoose.Decimal128
-}})
+  type: Number
+}
+}, { timestamps: { createdAt: 'created_at' } })
 const CardSchema = new mongoose.Schema({
   id:{
     type: String,
@@ -100,7 +101,7 @@ const CardSchema = new mongoose.Schema({
     type: String, // custo de mana
   },
   cmc: {
-    type: mongoose.Decimal128, // custo de mana convertido 
+    type: Number, // custo de mana convertido 
   },
   type_line: {
     type: String, // texto do tipo da carta, ex: Creatura - Orc Warrior
@@ -145,7 +146,13 @@ const CardSchema = new mongoose.Schema({
     type: String,
   },
   prices:{
-    type:PriceSchema,
+    type:[PriceSchema],
+  },
+  usd_variation:{
+    type: Number,
+  },
+  eur_variation:{
+    type: Number,
   },
   colors:[String],
   keywords:[String],

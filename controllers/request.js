@@ -16,15 +16,15 @@ module.exports = {
           method: 'get',
           url
         })).data;
-        CardController(allCards);
+        // CardController(allCards);
         MongoCardController.store(allCards)
-        console.log(allCards.has_more)
         if (!allCards.has_more) {
           url = null;
         } else {
           url = allCards.next_page;
         }
       };
+      console.log("END");
       return res.status(200).json(allCards.data);
     } catch (e) {
       console.log(e);
