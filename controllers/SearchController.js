@@ -64,7 +64,7 @@ module.exports.MongoSearch = async (req, res) => {
                 query["colors"]= {"$exists":true, $size:0};
             }
             else if(field == "name" || field == "collection" || field == "keywords"){
-                query[field] = {"$regex": '.*' + req.query.field + '.*', $options: 'i'};
+                query[field] = {"$regex": '.*' + req.query[field] + '.*', $options: 'i'};
             }
             else{
                 query[field]=req.query[field];
