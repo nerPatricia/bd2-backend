@@ -76,6 +76,8 @@ module.exports.SQLSearch = (req, res) =>{
     const keywords = req.query.keywords || '';
     const colors = req.query.colors || '';
     let query = {};
+    this.MongoSearch(req,res);
+    return;
     Object.keys(req.query).forEach(field =>{
         if(field == "usd_max"){
             query["prices.usd"][[Op.lt]]=usd_max;
@@ -104,6 +106,5 @@ module.exports.SQLSearch = (req, res) =>{
         attributes: ['name', 'imageUrisNormal', 'CardCollection.collectionId', 'CardColor.colorId'],
         where: query
     });
-    console.log(cards);
-    
+    return res.json(cards);
 };
