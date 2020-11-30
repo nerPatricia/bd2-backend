@@ -63,12 +63,16 @@ module.exports.MongoSearch = async (req, res) => {
             else if(field == "colors" && colors =='Z'){
                 query["colors"]= {"$exists":true, $size:0};
             }
+            else if(field == "name" || field == "collection" || field == "keywords"){
+                query[field] = {"$regex": '.*' + req.query.field + '.*', $options: 'i'};
+            }
             else{
                 query[field]=req.query[field];
             }
         }
     })
     const cards = await Card.paginate(query, { page, limit, select:'name image_uris'});
+    console.log(req.query);
     console.log("QUERY: ", query);
     return res.json(cards);
     
